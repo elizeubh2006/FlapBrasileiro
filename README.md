@@ -1,4 +1,3 @@
-````markdown
 # Flap Brasileiro
 
 ![Flap Brasileiro Screenshot](https://codando-games.web.app/img/trending/trend-2.jpg)
