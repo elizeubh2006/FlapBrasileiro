@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="552" height="112" viewBox="0 0 552 112" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Padrão de faixas diagonais para gramado (2 tons de verde) -->
+    <pattern id="grassStripes" patternUnits="userSpaceOnUse" width="20" height="20" patternTransform="rotate(45)">
+      <rect width="20" height="20" fill="#7eaf34"/> <!-- tom principal citeturn2search1 -->
+      <rect width="20" height="10" fill="#8bb748"/> <!-- faixa secundária citeturn2search1 -->
+    </pattern>
+
+    <!-- Filtro para relevo 3D (bevel) -->
+    <filter id="bevel" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="1" result="blur"/>
+      <feOffset in="blur" dx="0" dy="1" result="offsetBlur"/>
+      <feSpecularLighting in="blur" surfaceScale="1" specularConstant="0.5" specularExponent="10" lighting-color="#fff" result="specOut">
+        <fePointLight x="100" y="-200" z="200"/>
+      </feSpecularLighting>
+      <feComposite in="specOut" in2="SourceAlpha" operator="in" result="specComp"/>
+      <feComposite in="SourceGraphic" in2="specComp" operator="arithmetic" k1="1" k2="0" k3="1" k4="0"/>
+    </filter>
+
+    <!-- Padrão de solo e pedras irregulares -->
+    <pattern id="soilPattern" x="0" y="0" width="32" height="32" patternUnits="userSpaceOnUse">
+      <rect width="32" height="32" fill="#edd7bf"/> <!-- terra bege base citeturn0search10 -->
+      <!-- Pedras irregulares com relevo -->
+      <path d="M4,20 l6,-4 l8,3 l-5,6 z" fill="#6a3b41" filter="url(#bevel)"/> <!-- marrom escuro citeturn0search11 -->
+      <path d="M20,24 l4,-6 l7,2 l-3,5 z" fill="#ad766f" filter="url(#bevel)"/> <!-- marrom claro citeturn0search11 -->
+      <path d="M12,12 l5,-3 l6,4 l-4,5 z" fill="#4c3432" filter="url(#bevel)"/> <!-- cinza escuro citeturn0search11 -->
+    </pattern>
+  </defs>
+
+  <!-- Chão com solo e pedras, espessura 10px -->
+  <rect x="0" y="102" width="552" height="10" fill="url(#soilPattern)"/>
+
+  <!-- Bordas superiores e inferiores para relevo 3D -->
+  <rect x="0" y="102" width="552" height="1" fill="#cbb799"/>
+  <rect x="0" y="111" width="552" height="1" fill="#9a7d5f"/>
+
+  <!-- Gramado (10px) com faixas diagonais -->
+  <rect x="0" y="0" width="552" height="10" fill="url(#grassStripes)" filter="url(#bevel)"/>
+
+  <!-- Gramas e arbustos: lâminas curvas variadas -->
+  <g stroke="#30632a" stroke-width="0.8" fill="none"> <!-- verde escuro para contorno citeturn2search0 -->
+    <!-- Exemplos de lâminas com curvas quadráticas e alturas aleatórias -->
+    <path d="M20,10 q2,-8 4,0"/>
+    <path d="M40,10 q1.5,-6 3,0"/>
+    <path d="M60,10 q3,-10 5,0"/>
+    <path d="M80,10 q2,-7 4,0"/>
+    <path d="M100,10 q1,-5 2,0"/>
+    <path d="M120,10 q2.5,-9 4.5,0"/>
+    <path d="M140,10 q1.8,-6.5 3.5,0"/>
+    <path d="M160,10 q2,-8 4,0"/>
+    <path d="M180,10 q2.2,-9 4.2,0"/>
+    <path d="M200,10 q1.2,-6 2.5,0"/>
+    <!-- Replicar até 552px com variação randômica conforme necessário citeturn1search19 e citeturn0search20 -->
+  </g>
+</svg>
